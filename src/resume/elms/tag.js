@@ -3,6 +3,8 @@ const Tag = ({callback,data,vertical}) =>{
     const [_data,setData]=useState(data);
     const [inputValue,setInputValue] = useState("");
     const addTag = () =>{
+        if(inputValue==="")
+            return null
         console.log(inputValue)
         setData([..._data,inputValue])
         setInputValue("");
