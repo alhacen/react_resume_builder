@@ -1,0 +1,19 @@
+str={
+        resume:{
+            data:[
+                {
+                    name:"basic",
+                    description:"blablabla",
+                    fields:[
+                        {
+                            type:"text",
+                            name:"name",
+                            placeholder:"enter your name",
+                            
+                        }
+                    ]
+              
+                }
+            ]
+        }
+}
