@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 const Tag = ({callback,data,vertical}) =>{
+    if(!Array.isArray(data)){
+        data=[]
+    }
     const [_data,setData]=useState(data);
     const [inputValue,setInputValue] = useState("");
     const addTag = () =>{

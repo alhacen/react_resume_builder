@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {Template} from './downloadTemplate'
 import Tag from "./elms/tag"
 const KeyCodes = {
     comma: 188,
@@ -16,12 +17,9 @@ const objSize = (obj) =>{
     }
     return size;
 }
-const Resume = ({_data}) =>{
-    // console.log(_data)
+const Resume = ({data,onSave}) =>{
     const { register, handleSubmit } = useForm();
-  const onSubmit = () => console.log(structure);
-    
-
+    const onSubmit = () => onSave(structure);
     const createInput = (input,y,di,index,fi) =>{
         const handleForms = (e,input,y,di,index,fi) =>{
             // console.log(x.target.value,input)
@@ -59,34 +57,31 @@ const Resume = ({_data}) =>{
                 break;
 
         }
-        // return <input type="text" class="input"  />
     }
-    const [structure,setStructure]=useState(_data);
-   window.x=structure
+    const [structure,setStructure]=useState(data);
+    const createAnother = (index,elm)=>{
+        let tmp={...structure}; 
+        let newData={...structure.resume.data[index]};
+        newData=JSON.stringify(newData)
+        newData=JSON.parse(newData)
+        newData.fields[0].map(x=>{
+            x.value=""//empty all input of that data
+        })
+        tmp.resume.data[index].fields.push(newData.fields[0])
+        console.log(tmp)
+        setStructure(tmp)
+    }
+    const deleteData = (datai,index) =>{
+        if (index > -1) {
+            let tmp=Object.assign({}, structure); 
+            tmp.resume.data[datai].fields.splice(index, 1);
+        setStructure(tmp)
 
-   const createAnother = (index,elm)=>{
-    let tmp={...structure}; 
-    let newData={...structure.resume.data[index]};
-    newData=JSON.stringify(newData)
-    newData=JSON.parse(newData)
-    newData.fields[0].map(x=>{
-        x.value=""//empty all input of that data
-    })
-    tmp.resume.data[index].fields.push(newData.fields[0])
-    console.log(tmp)
-    setStructure(tmp)
-   }
-   const deleteData = (datai,index) =>{
-    if (index > -1) {
-        let tmp=Object.assign({}, structure); 
-        tmp.resume.data[datai].fields.splice(index, 1);
-       setStructure(tmp)
-
-      }
-   }
+        }
+    }
     return(
     <div>
-            {/* <form onSubmit={return false;}> */}
+        
 
         {
     structure.resume.data.map((data,datai)=>{
@@ -114,19 +109,19 @@ const Resume = ({_data}) =>{
                                 })
                             }
                             <div class="columns is-mobile padding15" style={{'height':'70px'}}>
-                    <p class="column center">
-                    {
-                        (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
-                    }
-                    </p>
-                    <p class="column center">
-                    {
-                        (data.fields.length>1)?<a onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn noborder">delete</a>:null
-                    }
-                    </p>
-                    
-                </div>
-                
+                            <p class="column center">
+                            {
+                                (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
+                            }
+                            </p>
+                            <p class="column center">
+                            {
+                                (data.fields.length>1)?<a onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn noborder">delete</a>:null
+                            }
+                            </p>
+                            
+                        </div>
+                        
                 {(objSize(data.fields)-index-1)?<hr className="hr1"/>:null}
                            </>
                        )
@@ -137,16 +132,15 @@ const Resume = ({_data}) =>{
             </div>
         </div>
       <hr className="hr1"/>
-
         </>
         )
     })
 }
 <p class="column center">
     <button onClick={handleSubmit(onSubmit)} class="button animatex addAnotherbtn">Save</button>
+    
+    <button onClick={()=>{window.open("").document.write(Template(structure))}} class="button animatex addAnotherbtn">download</button>
 </p>
-            {/* </form> */}
-            
     </div>
             
     )

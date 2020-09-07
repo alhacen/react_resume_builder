@@ -207,3 +207,64 @@ const App = ()=>{
   }
 
 export default App;
+///////////
+<div id="a">asdfasdfadsf</div>
+<script>
+function addScript(url) {
+    var script = document.createElement('script');
+    script.type = 'application/javascript';
+    script.src = url;
+    document.head.appendChild(script);
+}
+addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
+var element = document.getElementById('a');
+html2pdf(element);
+</script> 
+///////
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div id="a">_</div>
+  </section>
+  </body>
+</html>
+<script>
+var data={"resume":{"data":[{"name":"basic","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"text","name":"Name","value":"asdf","pattern":{},"placeholder":"Enter your name"},{"type":"text","name":"Mobile-Number","value":"9670820138","pattern":{},"placeholder":"Enter your Mobile Number"},{"type":"text","name":"Email-Address","value":"alhaqhss@gmail.com","pattern":{},"placeholder":"Enter your Email Address"},{"type":"textarea","name":"Present-Address","value":"ambari","placeholder":"Enter your Present Address"},{"type":"textarea","name":"About","value":"hassan","placeholder":"Describe Yourself in one sentence"}]]},{"name":"Educatoin & Certification","description":"blablabla","unique":false,"deletable":false,"fields":[[{"type":"text","name":"Company-Name","value":"alhaq","pattern":{},"placeholder":"School / College / University"},{"type":"text","name":"Company-Location","value":"azamgarh","pattern":{},"placeholder":"Degree"},{"type":"text","name":"Designation","value":"12345","pattern":{},"placeholder":"Grade"},{"type":"datepicker","name":"Date","value":"2020-09-23T18:30:00.000Z","pattern":{},"placeholder":"Date"}]]},{"name":"Work & Professional Experience","description":"blablabla","unique":false,"deletable":false,"fields":[[{"type":"text","name":"Company-Name","value":"google","pattern":{},"placeholder":"Company / Organization Name"},{"type":"text","name":"Company-Location","value":"Azamgarh","pattern":{},"placeholder":"Company Location"},{"type":"text","name":"Designation","value":"","pattern":{},"placeholder":"Designation"},{"type":"datepicker","name":"Starting-Date","value":"","pattern":{},"placeholder":"Designation"},{"type":"datepicker","name":"End-Date","value":"","pattern":{},"placeholder":"Designation"}]]},{"name":"Achivements   ","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"tag","name":"Achivements","value":["adsf","dd","e","f"],"vertical":true,"pattern":{},"placeholder":"...."}]]},{"name":"Language Known   ","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"tag","name":"Languange-Known","value":["adsf","dd","e","f"],"pattern":{},"placeholder":"...."}]]},{"name":"Intrests Hobbies","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"tag","name":"Intrests","value":["i dont have any"],"pattern":{},"placeholder":"...."}]]}]}}
+document.getElementById("a").innerHTML=fun()
+console.log(fun())
+function fun(){
+
+return data.resume.data.map((data,datai)=>{
+    return (`<div class="columns is-tablet dataFields ">
+            <div class="column is-5">
+                <h1 class="title ">${data.name}</h1>
+                
+            </div>
+            <div class="column ">`+
+data.fields.map((input,index)=>{
+return input.map((input,fieldi)=>{
+return(`<div className="padding15">
+                                            <p className="font20 marginBottom5" ><strong>${input.name.replace("-"," ")}</strong>: ${input.value}</p>
+
+                                        </div>`)
+}).join("");
+}).join("")+
+
+            `</div>
+        </div>
+      <hr className="hr1"/>`)
+
+}).join("")
+}
+
+
+
+</script>

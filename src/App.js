@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.svg';
-
 import Resume from './resume/newone'
 import './app.sass';
 const App = ()=>{
@@ -16,7 +15,7 @@ const App = ()=>{
                        [ {
                             type:"text",
                             name:"Name",
-                            value:"asdf",
+                            value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"Enter your name",
                             
@@ -63,7 +62,7 @@ const App = ()=>{
                     fields:[
                         [{
                             type:"text",
-                            name:"Company-Name",
+                            name:"college",
                             value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"School / College / University",
@@ -71,7 +70,7 @@ const App = ()=>{
                         },
                         {
                             type:"text",
-                            name:"Company-Location",
+                            name:"Degree",
                             value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"Degree",
@@ -79,7 +78,7 @@ const App = ()=>{
                         },
                         {
                             type:"text",
-                            name:"Designation",
+                            name:"Grade",
                             value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"Grade",
@@ -105,7 +104,7 @@ const App = ()=>{
                         [{
                             type:"text",
                             name:"Company-Name",
-                            value:"google",
+                            value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"Company / Organization Name",
                             
@@ -113,7 +112,7 @@ const App = ()=>{
                         {
                             type:"text",
                             name:"Company-Location",
-                            value:"Azamgarh",
+                            value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"Company Location",
                             
@@ -153,7 +152,7 @@ const App = ()=>{
                         [{
                             type:"tag",
                             name:"Achivements",
-                            value:['adsf','dd','e','f'],
+                            value:"",
                             vertical:true,
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"....",
@@ -170,7 +169,7 @@ const App = ()=>{
                         [{
                             type:"tag",
                             name:"Languange-Known",
-                            value:['adsf','dd','e','f'],
+                            value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"....",
     
@@ -187,7 +186,7 @@ const App = ()=>{
                         [{
                             type:"tag",
                             name:"Intrests",
-                            value:['i dont have any'],
+                            value:"",
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"....",
     
@@ -199,11 +198,9 @@ const App = ()=>{
         }
     }
   return (
-    <div class="section">
-    
-      <Resume _data={_data}/>
-    </div>
+        <div class="section">
+            <Resume data={_data} onSave={(x)=>{console.log(x)}} />
+        </div>
   );
   }
-
 export default App;
