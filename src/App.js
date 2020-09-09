@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import Resume from './resume/newone'
+import Resume from './react-resume-builder/index'
 import './app.sass';
 const App = ()=>{
     const _data= {
@@ -14,39 +14,44 @@ const App = ()=>{
                     fields:[
                        [ {
                             type:"text",
-                            name:"Name",
+                            name:"name",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
+                            required: true,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"Enter your name",
                             
                         },
                         {
                             type:"text",
-                            name:"Mobile-Number",
+                            name:"mobile-number",
                             value:"",
+                            required: true,
                             pattern:/^(\+\d{1,3}[- ]?)?\d{10}$/,
                             placeholder:"Enter your Mobile Number",
                             
                         },
                         {
                             type:"text",
-                            name:"Email-Address",
+                            name:"email-address",
                             value:"",
+                            required: true,
                             pattern:/\S+@\S+\.\S+/,
                             placeholder:"Enter your Email Address",
                             
                         },
                         {
                             type:"textarea",
-                            name:"Present-Address",
+                            name:"present-address",
                             value:"",
+                            required: true,
                             placeholder:"Enter your Present Address",
                             
                         },
                         {
                             type:"textarea",
-                            name:"About",
+                            name:"about",
                             value:"",
+                            required: true,
                             placeholder:"Describe Yourself in one sentence",
                             
                         },]
@@ -55,7 +60,7 @@ const App = ()=>{
               
                 },
                 {
-                    name:"Educatoin & Certification",
+                    name:"education-and-certification",
                     description:"blablabla",
                     unique:false,
                     deletable:false,
@@ -64,31 +69,34 @@ const App = ()=>{
                             type:"text",
                             name:"college",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
+                            required: true,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"School / College / University",
                             
                         },
                         {
                             type:"text",
-                            name:"Degree",
+                            name:"degree",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
-                            placeholder:"Degree",
+                            required: true,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
+                            placeholder:"Degree / certificate",
                             
                         },
                         {
                             type:"text",
-                            name:"Grade",
+                            name:"grade",
                             value:"",
+                            required: true,
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"Grade",
                             
                         },
                         {
                             type:"datepicker",
-                            name:"Date",
+                            name:"date",
+                            required: true,
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
                             placeholder:"Date",
                             
                         },]
@@ -96,101 +104,172 @@ const App = ()=>{
                     ]
                 },
                 {
-                    name:"Work & Professional Experience",
+                    name:"work-and-professional-experience",
                     description:"blablabla",
                     unique:false,
                     deletable:false,
                     fields:[
                         [{
                             type:"text",
-                            name:"Company-Name",
+                            name:"company-name",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"Company / Organization Name",
                             
                         },
                         {
                             type:"text",
-                            name:"Company-Location",
+                            name:"company-location",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"Company Location",
                             
                         },
                         {
                             type:"text",
-                            name:"Designation",
+                            name:"designation",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"Designation",
                             
                         },
                         {
                             type:"datepicker",
-                            name:"Starting-Date",
+                            name:"starting-date",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
                             placeholder:"Designation",
                             
                         },
                         {
                             type:"datepicker",
-                            name:"End-Date",
+                            name:"end-date",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
                             placeholder:"Designation",
                             
                         },]
                     ]
                 },
                 {
-                    name:"Achivements   ",
+                    name:"links",
+                    description:"blablabla",
+                    unique:true,
+                    deletable:false,
+                    fields:[
+                        [{
+                            type:"text",
+                            name:"home-page",
+                            value:"",
+                            pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
+                            placeholder:"Personal Website",
+                            
+                        },
+                        {
+                            type:"text",
+                            name:"github",
+                            value:"",
+                            pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
+                            placeholder:"Github Url",
+                            
+                        }
+                        ,
+                        {
+                            type:"text",
+                            name:"linkdin",
+                            value:"",
+                            pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
+                            placeholder:"Linkdin Url",
+                            
+                        }
+                        ,
+                        {
+                            type:"text",
+                            name:"blog",
+                            value:"",
+                            pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
+                            placeholder:"Blog Url",
+                            
+                        }
+                        ]
+                        
+                    ]
+                },
+                {
+                    name:"project",
+                    description:"blablabla",
+                    unique:false,
+                    deletable:false,
+                    fields:[
+                        [{
+                            type:"text",
+                            name:"project-name",
+                            value:"",
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
+                            placeholder:"Project Title",
+                            
+                        },
+                        {
+                            type:"text",
+                            name:"about-project",
+                            value:"",
+                            placeholder:"Project Description",
+                            
+                        },
+                        {
+                            type:"text",
+                            name:"project-link",
+                            value:"",
+                            pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
+                            placeholder:"Project Link",
+                            
+                        },
+                        ]
+                    ]
+                },
+                {
+                    name:"achivements",
                     description:"blablabla",
                     unique:true,
                     deletable:false,
                     fields:[
                         [{
                             type:"tag",
-                            name:"Achivements",
+                            name:"achivements",
                             value:"",
                             vertical:true,
-                            pattern:/^[A-Za-z]+$/i,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"....",
                             
                         },]
                     ]
                 },
                 {
-                    name:"Language Known   ",
+                    name:"language-known",
                     description:"blablabla",
                     unique:true,
                     deletable:false,
                     fields:[
                         [{
                             type:"tag",
-                            name:"Languange-Known",
+                            name:"languange-known",
                             value:"",
+                            required: true,
                             pattern:/^[A-Za-z]+$/i,
                             placeholder:"....",
-    
-                            
                         },]
                     ]
                 },
                 {
-                    name:"Intrests Hobbies",
+                    name:"intrests-hobbies",
                     description:"blablabla",
                     unique:true,
                     deletable:false,
                     fields:[
                         [{
                             type:"tag",
-                            name:"Intrests",
+                            name:"intrests",
                             value:"",
-                            pattern:/^[A-Za-z]+$/i,
+                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"....",
-    
-                            
                         },]
                     ]
                 }

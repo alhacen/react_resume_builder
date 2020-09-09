@@ -8,7 +8,6 @@ const KeyCodes = {
     comma: 188,
     enter: 13,
   };
-
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 const objSize = (obj) =>{
     var size = 0, key;
@@ -41,7 +40,7 @@ const Resume = ({data,onSave}) =>{
         }
         switch(input.type){
             case "text":
-                return <input type="text" class="input" name={input.name} value={input.value}  placeholder={input.placeholder} onChange={(e)=>{handleForms(e,input,y,di,index,fi);}} ref={register({ pattern: input.pattern })} />
+                return <input type="text" class="input" name={input.name} value={input.value}  placeholder={input.placeholder} onChange={(e)=>{handleForms(e,input,y,di,index,fi);}} ref={register({ pattern: input.pattern,required:input.required })} />
                 break;
             case "textarea":
                 return <textarea class="input" name={input.name} value={input.value}  placeholder={input.placeholder} onChange={(e)=>{handleForms(e,input,y,di,index,fi);}} ref={register({ pattern: input.pattern })} style={{'height':'60px'}}></textarea>
@@ -90,7 +89,7 @@ const Resume = ({data,onSave}) =>{
             <>
         <div class="columns is-tablet dataFields ">
             <div class="column is-5">
-                <h1 class="title ">{data.name}</h1>
+                <h1 class="title ">{data.name.replaceAll("-"," ").toUpperCase()}</h1>
                 <p class="bold bold">{data.description}</p>
             </div>
             <div class="column ">
@@ -102,13 +101,13 @@ const Resume = ({data,onSave}) =>{
                                 input.map((input,fieldi)=>{
                                     return(
                                         <div className="padding15">
-                                            <p className="font20 marginBottom5" >{input.name.replace("-"," ")}</p>
+                                            <p className="font20 marginBottom5" >{input.name.replaceAll("-"," ").toUpperCase()}</p>
                                             {createInput(input,data,datai,index,fieldi)}
                                         </div>
                                         )
                                 })
                             }
-                            <div class="columns is-mobile padding15" style={{'height':'70px'}}>
+                        <div class="columns is-mobile padding15" style={{'height':'70px'}}>
                             <p class="column center">
                             {
                                 (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
@@ -137,9 +136,10 @@ const Resume = ({data,onSave}) =>{
     })
 }
 <p class="column center">
-    <button onClick={handleSubmit(onSubmit)} class="button animatex addAnotherbtn">Save</button>
     
-    <button onClick={()=>{window.open("").document.write(Template(structure))}} class="button animatex addAnotherbtn">download</button>
+    <button onClick={handleSubmit(onSubmit)} class="button animatex addAnotherbtn margin5">Save</button>
+    
+    <button onClick={()=>{window.open("").document.write(Template(structure))}} class="button animatex addAnotherbtn margin5">download</button>
 </p>
     </div>
             

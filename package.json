@@ -15,7 +15,8 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.7.2",
     "react-html2pdf": "^1.0.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-resume-builder":"1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

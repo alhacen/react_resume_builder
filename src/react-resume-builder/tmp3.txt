@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" >
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+const data={"resume":{"data":[{"name":"basic","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"text","name":"name","value":"ahmad hassan ansari","pattern":{},"placeholder":"Enter your name"},{"type":"text","name":"mobile-number","value":"9670820138","pattern":{},"placeholder":"Enter your Mobile Number"},{"type":"text","name":"email-address","value":"alhaqhassan@gmail.com","pattern":{},"placeholder":"Enter your Email Address"},{"type":"textarea","name":"present-address","value":"ambari azamgarh up 223222","placeholder":"Enter your Present Address"},{"type":"textarea","name":"about","value":"i am just so lerm ipsum","placeholder":"Describe Yourself in one sentence"}]]},{"name":"education-and-certification","description":"blablabla","unique":false,"deletable":false,"fields":[[{"type":"text","name":"college","value":"jamia millia islamia","pattern":{},"placeholder":"School / College / University"},{"type":"text","name":"degree","value":" b.tech","pattern":{},"placeholder":"Degree / certificate"},{"type":"text","name":"grade","value":"6.6","pattern":{},"placeholder":"Grade"},{"type":"datepicker","name":"date","value":"2020-09-08T18:46:11.170Z","pattern":{},"placeholder":"Date"}],[{"type":"text","name":"college","value":"janta ic","pattern":{},"placeholder":"School / College / University"},{"type":"text","name":"degree","value":"12th","pattern":{},"placeholder":"Degree / certificate"},{"type":"text","name":"grade","value":"90","pattern":{},"placeholder":"Grade"},{"type":"datepicker","name":"date","value":"2020-09-08T18:46:37.807Z","pattern":{},"placeholder":"Date"}]]},{"name":"work-and-professional-experience","description":"blablabla","unique":false,"deletable":false,"fields":[[{"type":"text","name":"company-name","value":"alhaq","pattern":{},"placeholder":"Company / Organization Name"},{"type":"text","name":"company-location","value":"azamgarh","pattern":{},"placeholder":"Company Location"},{"type":"text","name":"designation","value":"idk","pattern":{},"placeholder":"Designation"},{"type":"datepicker","name":"starting-date","value":"2020-09-08T18:46:53.290Z","pattern":{},"placeholder":"Designation"},{"type":"datepicker","name":"end-date","value":"2020-09-04T18:30:00.000Z","pattern":{},"placeholder":"Designation"}],[{"type":"text","name":"company-name","value":"keeperspot","pattern":{},"placeholder":"Company / Organization Name"},{"type":"text","name":"company-location","value":"delhi","pattern":{},"placeholder":"Company Location"},{"type":"text","name":"designation","value":"idk too","pattern":{},"placeholder":"Designation"},{"type":"datepicker","name":"starting-date","value":"2020-09-09T18:30:00.000Z","pattern":{},"placeholder":"Designation"},{"type":"datepicker","name":"end-date","value":"2020-09-08T18:47:12.390Z","pattern":{},"placeholder":"Designation"}]]},{"name":"links","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"text","name":"home-page","value":"http://alhacen.cf","pattern":{},"placeholder":"Personal Website"},{"type":"text","name":"github","value":"https://github.com/alhaqhassan","pattern":{},"placeholder":"Github Url"},{"type":"text","name":"linkdin","value":"https://linkdin.com/in/alhaqhasasn","pattern":{},"placeholder":"Linkdin Url"},{"type":"text","name":"blog","value":"","pattern":{},"placeholder":"Blog Url"}]]},{"name":"project","description":"blablabla","unique":false,"deletable":false,"fields":[[{"type":"text","name":"project-name","value":"irouter","pattern":{},"placeholder":"Project Title"},{"type":"text","name":"about-project","value":"simple js library","pattern":{},"placeholder":"Project Description"},{"type":"text","name":"project-link","value":"https://github.com/alhaqhassan/irouter","pattern":{},"placeholder":"Project Link"}],[{"type":"text","name":"project-name","value":"keeperspot","pattern":{},"placeholder":"Project Title"},{"type":"text","name":"about-project","value":"idk","pattern":{},"placeholder":"Project Description"},{"type":"text","name":"project-link","value":"javascript:idonthave","pattern":{},"placeholder":"Project Link"}],[{"type":"text","name":"project-name","value":"upc","pattern":{},"placeholder":"Project Title"},{"type":"text","name":"about-project","value":"official project ","pattern":{},"placeholder":"Project Description"},{"type":"text","name":"project-link","value":"https://github.com/upc","pattern":{},"placeholder":"Project Link"}]]},{"name":"achivements","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"tag","name":"achivements","value":["got admission in jamia","alhamdulliah"],"vertical":true,"pattern":{},"placeholder":"...."}]]},{"name":"language-known","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"tag","name":"languange-known","value":["english ","hindi","urdu"],"pattern":{},"placeholder":"...."}]]},{"name":"intrests-hobbies","description":"blablabla","unique":true,"deletable":false,"fields":[[{"type":"tag","name":"intrests","value":["i dont have any"],"pattern":{},"placeholder":"...."}]]}]}}
+const getData = (key) =>{
+//return data.resume.data[1].name
+ for(let i in data.resume.data){
+   if(data.resume.data[i].name===key)
+        return data.resume.data[i]
+    
+ }  
+}
+
+const getValue = (data,key) =>{
+
+//return data[0].value
+ 
+   for(let i in data){ 
+   if(data[i].name===key)
+        return data[i].value 
+     
+   } 
+return false
+} 
+console.log(getValue(getData("links").fields[0],"github"))
+const Education = () =>{ 
+    let data=getData("education-and-certification") 
+
+    return(
+        <div class="mt20">
+            <p class="is-size-4">Education</p>
+                { data.fields.map((input,index)=>{  
+
+                            return(
+
+
+                        <div class="p10">  
+                            <div id="projectList">
+                                <p class="is-size-5 has-text-link has-text-weight-bold">{getValue(input,'college')}</p>
+                                <p class="">{getValue(input,'degree')}, {new Date(getValue(input,'date')).getFullYear()}</p>
+                            </div>
+                        </div> 
+
+
+                                )
+                })}
+        </div>
+    )
+  
+}
+const isEmpty = (key) =>{
+
+    let data=getData(key)
+console.log(data.fields[0][0])
+    return (data.fields[0][0].value=="")?true:false
+  
+}
+const Project = () =>{
+    let data=getData("project")
+if(isEmpty("project")){return <></>}
+    return(
+        <div class="mt20">
+            <p class="is-size-4">Project</p>
+                { data.fields.map((input,index)=>{  
+
+                            return(
+
+
+                        <div class="p10">  
+                            <div id="projectList">
+                                <p class="is-size-5 has-text-link has-text-weight-bold">{getValue(input,'project-name')} <a href={getValue(input,'project-link')} class="is-size-6 is-italic">-Link</a></p>
+                                <p class="">{getValue(input,'about-project')}</p>
+                            </div>
+                        </div> 
+
+
+                                )
+                })}
+        </div>
+    )
+  
+}
+const Achivements = () =>{
+    let data=getData("achivements")
+
+    return(
+        <div class="mt20">
+            <p class="is-size-4">Achivements</p>
+                { data.fields.map((achivement,index)=>{  
+
+                            return(
+
+
+                        <div class="p10">  
+                            <div id="projectList">
+{
+achivement[0].value.map((a,index)=>{
+
+return(
+<p>{index+1}. {a}</p>
+)
+})
+} 
+                                
+                            </div>
+                        </div> 
+
+
+                                )
+                })}
+        </div>
+    )
+  
+}
+const Main = ()=> {  
+
+    return ( 
+ 
+
+    <div id="resume">
+
+        <section class="section"> 
+            <div id="a" class="p25">
+                <div>
+                    <table class="mb40 w100">
+                        <tr>
+                            <td id="mobileNumber " class="has-text-link">{getValue(getData("basic").fields[0],"mobile-number")}</td>
+                            <td id="sociallink1 " class="has-text-right">
+{
+getValue(getData("links").fields[0],"linkdin")?<p class="spacing2"> <span class="has-text-weight-bold">linkdin - </span> <span class="has-text-link "><a href={getValue(getData("links").fields[0],"linkdin")}>{getValue(getData("links").fields[0],"linkdin")}</a></span></p>:null
+}
+
+</td>
+                        </tr>
+
+                        <tr>
+                            <td id="email">{getValue(getData("basic").fields[0],"email-address")}</td>
+
+                            <td id="sociallink2" class="has-text-right">
+{
+getValue(getData("links").fields[0],"github")?<p class="spacing2"> <span class="has-text-weight-bold">github - </span> <span class="has-text-link "><a href={getValue(getData("links").fields[0],"github")}>{getValue(getData("links").fields[0],"github")}</a></span></p>:null
+}
+
+</td>                         
+                        </tr>
+                    </table>
+                </div>
+                <div >
+                        <h1 id="name" class="title ">{getValue(getData("basic").fields[0],"name")}</h1>
+                        <hr class="border2px" />
+                        <p id="aboutMe">{getValue(getData("basic").fields[0],"about")}</p>
+                </div>
+<Education />
+<Project />
+{/*                <Education />*/}
+<Achivements />
+            </div>
+        </section>
+    </div> 
+
+
+
+    );
+  
+}
+      ReactDOM.render(
+        <Main />,
+        document.getElementById('root')
+      );
+
+    </script>
+<style>
+.p25{padding:25px}
+.p10{padding:10px}
+.mb40{margin-bottom:40px;}
+.mt20{margin-top:20px}
+.mb20{margin-bottom:20px}
+.w100{width:100%}
+.spacing2{letter-spacing:2px}
+.border2px{border:2px solid}
+#resume{width:1024px;margin-left:auto;margin-right:auto}
+</style>
+  </body>
+</html>
