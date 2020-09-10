@@ -157,14 +157,6 @@ const App = ()=>{
                     fields:[
                         [{
                             type:"text",
-                            name:"home-page",
-                            value:"",
-                            pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
-                            placeholder:"Personal Website",
-                            
-                        },
-                        {
-                            type:"text",
                             name:"github",
                             value:"",
                             pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
@@ -179,17 +171,7 @@ const App = ()=>{
                             pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
                             placeholder:"Linkdin Url",
                             
-                        }
-                        ,
-                        {
-                            type:"text",
-                            name:"blog",
-                            value:"",
-                            pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
-                            placeholder:"Blog Url",
-                            
-                        }
-                        ]
+                        }]
                         
                     ]
                 },
@@ -254,21 +236,6 @@ const App = ()=>{
                             value:"",
                             required: true,
                             pattern:/^[A-Za-z]+$/i,
-                            placeholder:"....",
-                        },]
-                    ]
-                },
-                {
-                    name:"intrests-hobbies",
-                    description:"blablabla",
-                    unique:true,
-                    deletable:false,
-                    fields:[
-                        [{
-                            type:"tag",
-                            name:"intrests",
-                            value:"",
-                            pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
                             placeholder:"....",
                         },]
                     ]

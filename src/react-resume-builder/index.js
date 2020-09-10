@@ -137,7 +137,7 @@ const Resume = ({data,onSave}) =>{
 }
 <p class="column center">
     
-    <button onClick={handleSubmit(onSubmit)} class="button animatex addAnotherbtn margin5">Save</button>
+    {/* <button onClick={handleSubmit(onSubmit)} class="button animatex addAnotherbtn margin5">Save</button> */}
     
     <button onClick={()=>{window.open("").document.write(Template(structure))}} class="button animatex addAnotherbtn margin5">download</button>
 </p>
