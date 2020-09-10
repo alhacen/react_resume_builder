@@ -6,6 +6,8 @@ console.log(data)
       <head>
         <meta charset="UTF-8" />
         <title>React Resume Builder</title>
+      <div id="loading"><h1 style="text-align:center" class="title  has-text-centered">please wait...</h1></div>
+
         <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
 
         <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
@@ -17,7 +19,6 @@ console.log(data)
       </head>
       
       <body id="body">
-      <div id="loading"><h1 style="text-align:center" class="title  has-text-centered">please wait...</h1></div>
       
         <div id="root"></div>
     <script>
@@ -184,15 +185,15 @@ console.log(data)
       }, getValue(getData("basic").fields[0], "mobile-number")), /*#__PURE__*/React.createElement("td", {
         id: "sociallink1 ",
         class: "has-text-right"
-      }, getValue(getData("links").fields[0], "linkdin") ? /*#__PURE__*/React.createElement("p", {
+      }, getValue(getData("links").fields[0], "linkedin") ? /*#__PURE__*/React.createElement("p", {
         class: "spacing2"
       }, " ", /*#__PURE__*/React.createElement("span", {
         class: "has-text-weight-bold"
-      }, "linkdin - "), " ", /*#__PURE__*/React.createElement("span", {
+      }, "linkedin - "), " ", /*#__PURE__*/React.createElement("span", {
         class: "has-text-link "
       }, /*#__PURE__*/React.createElement("a", {
-        href: getValue(getData("links").fields[0], "linkdin")
-      }, getValue(getData("links").fields[0], "linkdin")))) : null)), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+        href: getValue(getData("links").fields[0], "linkedin")
+      }, getValue(getData("links").fields[0], "linkedin")))) : null)), /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
         id: "email"
       }, getValue(getData("basic").fields[0], "email-address")), /*#__PURE__*/React.createElement("td", {
         id: "sociallink2",

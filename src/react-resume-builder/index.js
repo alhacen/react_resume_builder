@@ -90,7 +90,7 @@ const Resume = ({data,onSave}) =>{
         <div class="columns is-tablet dataFields ">
             <div class="column is-5">
                 <h1 class="title ">{data.name.replaceAll("-"," ").toUpperCase()}</h1>
-                <p class="bold bold">{data.description}</p>
+                <p class="bold bold" style={{'color':'#b5b5b5'}}>{data.description}</p>
             </div>
             <div class="column ">
                 {
@@ -110,12 +110,12 @@ const Resume = ({data,onSave}) =>{
                         <div class="columns is-mobile padding15" style={{'height':'70px'}}>
                             <p class="column center">
                             {
-                                (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
+                                (data.fields.length>1)?<a onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn noborder">delete</a>:null
                             }
                             </p>
                             <p class="column center">
                             {
-                                (data.fields.length>1)?<a onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn noborder">delete</a>:null
+                                (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
                             }
                             </p>
                             
@@ -139,7 +139,7 @@ const Resume = ({data,onSave}) =>{
     
     {/* <button onClick={handleSubmit(onSubmit)} class="button animatex addAnotherbtn margin5">Save</button> */}
     
-    <button onClick={()=>{window.open("").document.write(Template(structure))}} class="button animatex addAnotherbtn margin5">download</button>
+    <button onClick={()=>{window.open("").document.write(Template(structure))}} class="button animatex addAnotherbtn margin5">Download</button>
 </p>
     </div>
             
