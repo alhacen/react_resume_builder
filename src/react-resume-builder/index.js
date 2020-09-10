@@ -110,12 +110,12 @@ const Resume = ({data,onSave}) =>{
                         <div class="columns is-mobile padding15" style={{'height':'70px'}}>
                             <p class="column center">
                             {
-                                (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
+                                (data.fields.length>1)?<a onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn noborder">delete</a>:null
                             }
                             </p>
                             <p class="column center">
                             {
-                                (data.fields.length>1)?<a onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn noborder">delete</a>:null
+                                (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
                             }
                             </p>
                             
