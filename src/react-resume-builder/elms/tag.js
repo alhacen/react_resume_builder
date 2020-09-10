@@ -53,7 +53,7 @@ const Tag = ({callback,data,vertical}) =>{
                         <input type="text" class="input" value={inputValue} onChange={(e)=>{handleInput(e)}} />
                     </p>
                     <p class="column center">
-                        <a onClick={()=>{addTag()}} class="button addAnotherbtn ">add</a>
+                        <a onClick={()=>{addTag()}} class="button addAnotherbtn ">Add</a>
                     </p>
                 </div>
         </div>

@@ -8,7 +8,7 @@ const App = ()=>{
             data:[
                 {
                     name:"basic",
-                    description:"blablabla",
+                    description:"Employers will use this information to contact you.",
                     unique:true,
                     deletable:false,
                     fields:[
@@ -61,7 +61,7 @@ const App = ()=>{
                 },
                 {
                     name:"education-and-certification",
-                    description:"blablabla",
+                    description:"Add information about your educational background. Start off by listing your degrees/certificates from most recent to oldest.",
                     unique:false,
                     deletable:false,
                     fields:[
@@ -105,7 +105,7 @@ const App = ()=>{
                 },
                 {
                     name:"work-and-professional-experience",
-                    description:"blablabla",
+                    description:"Your most recent or current job/experience should be listed first. Then, work in reverse chronological order, from your newest to your oldest jobs.",
                     unique:false,
                     deletable:false,
                     fields:[
@@ -151,7 +151,7 @@ const App = ()=>{
                 },
                 {
                     name:"links",
-                    description:"blablabla",
+                    description:"",
                     unique:true,
                     deletable:false,
                     fields:[
@@ -166,10 +166,10 @@ const App = ()=>{
                         ,
                         {
                             type:"text",
-                            name:"linkdin",
+                            name:"linkedin",
                             value:"",
                             pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
-                            placeholder:"Linkdin Url",
+                            placeholder:"linkedin Url",
                             
                         }]
                         
@@ -177,7 +177,7 @@ const App = ()=>{
                 },
                 {
                     name:"project",
-                    description:"blablabla",
+                    description:"Add information about your Projects",
                     unique:false,
                     deletable:false,
                     fields:[
@@ -209,7 +209,7 @@ const App = ()=>{
                 },
                 {
                     name:"achivements",
-                    description:"blablabla",
+                    description:"",
                     unique:true,
                     deletable:false,
                     fields:[
@@ -226,7 +226,7 @@ const App = ()=>{
                 },
                 {
                     name:"language-known",
-                    description:"blablabla",
+                    description:"",
                     unique:true,
                     deletable:false,
                     fields:[
