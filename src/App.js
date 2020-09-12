@@ -7,10 +7,14 @@ import data from './resumeSchema'
 const App = ()=>{
     
   return (
+    <div className="">
         <div class="section">
+          <div className="card padding20">
             <Resume data={data} onSave={(x)=>{console.log(x)}} />
             <Footer />
+          </div>
         </div>
+    </div>
   );
   }
 export default App;

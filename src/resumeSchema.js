@@ -29,7 +29,7 @@ data= {
     }
 }
 */
-const data= {
+let data= {
     resume:{
         data:[
             {
@@ -85,7 +85,7 @@ const data= {
           
             },
             {
-                name:"education-and-certification",
+                name:"education",
                 description:"Add information about your educational background. Start off by listing your degrees/certificates from most recent to oldest.",
                 unique:false,
                 fields:[
@@ -124,6 +124,33 @@ const data= {
                         placeholder:"Date",
                         
                     },]
+                    
+                ]
+            },
+            {
+                name:"certificate",
+                description:" Start off by listing your certificates from most recent to oldest.",
+                unique:false,
+                fields:[
+                    [{
+                        type:"text",
+                        name:"certificate",
+                        value:"",
+                        required: true,
+                        pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
+                        placeholder:"Certificate",
+                        
+                    },
+                    {
+                        type:"text",
+                        name:"issuer",
+                        value:"",
+                        required: true,
+                        pattern:/^[a-z][a-z '-.,]{0,31}$|^$/i,
+                        placeholder:"issued by",
+                        
+                    },
+                    ]
                     
                 ]
             },
@@ -179,21 +206,30 @@ const data= {
                 fields:[
                     [{
                         type:"text",
-                        name:"github",
+                        name:"link1",
                         value:"",
                         pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
-                        placeholder:"Github Url",
+                        placeholder:"i.e. Github Url",
                         
                     }
                     ,
                     {
                         type:"text",
-                        name:"linkedin",
+                        name:"link2",
                         value:"",
                         pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
-                        placeholder:"linkedin Url",
+                        placeholder:"i.e. linkedin Url",
                         
-                    }]
+                    },
+                    {
+                        type:"text",
+                        name:"link3",
+                        value:"",
+                        pattern:/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
+                        placeholder:"",
+                        
+                    }
+                    ]
                     
                 ]
             },

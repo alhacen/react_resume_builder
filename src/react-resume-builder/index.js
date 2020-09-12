@@ -16,6 +16,9 @@ const objSize = (obj) =>{
     }
     return size;
 }
+const saveLocal = (data) =>{
+    localStorage.setItem('data', JSON.stringify(data));
+}
 const Resume = ({data,onSave}) =>{
     const { register, handleSubmit } = useForm();
     const onSubmit = () => onSave(structure);
@@ -25,18 +28,21 @@ const Resume = ({data,onSave}) =>{
             let tmpstr=Object.assign({}, structure);
             tmpstr.resume.data[di].fields[index][fi]['value']=e.target.value;
             setStructure(tmpstr);
+            saveLocal(structure);
         }
         const handleDate = (e,input,y,di,index,fi) =>{
             let tmpstr=Object.assign({}, structure);
             tmpstr.resume.data[di].fields[index][fi]['value']=e;
             setStructure(tmpstr);
-            console.log(tmpstr)
+            console.log(tmpstr);
+            saveLocal(structure);
         }
         const handleTag = (e,input,y,di,index,fi) =>{
             let tmpstr=Object.assign({}, structure);
             tmpstr.resume.data[di].fields[index][fi]['value']=e;
             setStructure(tmpstr);
-            console.log(tmpstr)
+            console.log(tmpstr);
+            saveLocal(structure);
         }
         switch(input.type){
             case "text":
@@ -54,7 +60,6 @@ const Resume = ({data,onSave}) =>{
             case "tag":
                 return <Tag callback={(data)=>{handleTag(data,input,y,di,index,fi)}} vertical={input.vertical} data={input.value}/>
                 break;
-
         }
     }
     const [structure,setStructure]=useState(data);
@@ -92,7 +97,7 @@ const Resume = ({data,onSave}) =>{
                 <h1 class="title ">{data.name.replaceAll("-"," ").toUpperCase()}</h1>
                 <p class="bold bold" style={{'color':'#b5b5b5'}}>{data.description}</p>
             </div>
-            <div class="column ">
+            <div class="column " style={{'position':'relative'}}>
                 {
                     data.fields.map((input,index)=>{
                        return(
@@ -108,16 +113,12 @@ const Resume = ({data,onSave}) =>{
                                 })
                             }
                         <div class="columns is-mobile padding15" style={{'height':'70px'}}>
-                            <p class="column center">
+                            <p class="column">
                             {
-                                (data.fields.length>1)?<a onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn noborder">delete</a>:null
+                                (data.fields.length>1)?<a style={{'position':'absolute', 'marginLeft':'320px'}} onClick={()=>{deleteData(datai,index)}} class="button addAnotherbtn is-danger noborder">delete</a>:null
                             }
                             </p>
-                            <p class="column center">
-                            {
-                                (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
-                            }
-                            </p>
+                            
                             
                         </div>
                         
@@ -127,6 +128,11 @@ const Resume = ({data,onSave}) =>{
                     })
 
                 }
+                <p class="column center" style={{'position':'absolute', 'marginTop':'-65px','marginLeft':'180px'}}>
+                            {
+                                (!data.unique)?<button onClick={()=>{createAnother(datai,data)}} class="button animatex addAnotherbtn">Add Another</button>:null
+                            }
+                            </p>
 
             </div>
         </div>
