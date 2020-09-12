@@ -4,6 +4,8 @@
 <p align="center" width="100%">
     <img src="https://github.com/alhaqhassan/my_gits/blob/master/RESUMEss.png?raw=true&style=centerme" >
 </p>
+  
+Tryit [demo](https://alhaqhassan.github.io/react_resume_builder/)
 
 ### Features 📋
 
