@@ -13,7 +13,7 @@ Tryit [demo](https://alhaqhassan.github.io/react_resume_builder/)
 - Beautiful Design
 - Add Custom Input fields
 - Download PDF of Resume
-- No Backed Server Required,You can host it on git pages too
+- No Backend Server Required,You can host it on git pages too
 
 ## Setup ⚙️
 It's just a react app so
